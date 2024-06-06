@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+
+    <!-- <h1>Hello</h1> -->
+
+    <form method="POST" action="">
+        <label for="disaster_subgroup">Disaster Subgroup</label>
+        <select name="disaster_subgroup" id="disaster_subgroup">
+            {% for groups in params.subgroups%}
+                <option value="{{groups}}">{{groups}}</option>
+            {% endfor%}
+        </select>
+        <br>
+        <label for="disaster_subtype">Disaster Subtype</label>
+        <select name="disaster_subtype" id="disaster_subtype">
+            {% for subtype in params.subtypes%}
+                <option value="{{subtype}}">{{subtype}}</option>
+            {% endfor%}
+        </select>
+        <br>
+        <label for="disaster_type">Disaster Type</label>
+        <select name="disaster_type" id="disaster_type">
+            {% for type in params.types%}
+                <option value="{{type}}">{{type}}</option>
+            {% endfor%}
+        </select>
+        <br>
+        <label for="disaster_subregion">Disaster Subregion</label>
+        <select name="disaster_subregion" id="disaster_subregion">
+            {% for region in params.subregion%}
+                <option value="{{region}}">{{region}}</option>
+            {% endfor%}
+        </select>
+        <br>
+        <label for="disaster_iso">Country ISO Code</label>
+        <select name="disaster_iso" id="disaster_iso">
+            {% for iso in params.iso%}
+                <option value="{{iso}}">{{iso}}</option>
+            {% endfor%}
+        </select>
+        <br>
+        <label for="disaster_year">Year</label>
+        <input type="number" name="disaster_year" id="disaster_year" min="1900" max="2500" placeholder="Start Year of Disaster">
+        <br>
+        <label for="disaster_total_affected">
+            Total Affected
+        </label>
+        <input type="number" id="disaster_total_affected" name="disaster_total_affected" placeholder="No: total affected">
+        <br>
+        <label for="disaster_total_deaths">
+            Total deaths
+        </label>
+        <input type="number" id="disaster_total_deaths" name="disaster_total_deaths" placeholder="No: Deaths" min="0">
+        <br>
+        <label for="magnitude_scale">
+            Magnitude Scale
+        </label>
+        <select name="magnitude_scale" id="magnitude_scale">
+            <option value="degree">Degree Celcius</option>
+            <option value="km2">Km2</option>
+            <option value="kmph">Km/h</option>
+            <option value="richter">Richter</option>
+        </select>
+        <br>
+        <label for="diaster_magnitude">Magnitude</label>
+        <input type="number" id="diaster_magnitude" name="diaster_magnitude" placeholder="Magnitude">
+        <br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
