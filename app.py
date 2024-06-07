@@ -4,11 +4,19 @@ import numpy as np
 import sklearn
 import joblib
 from flask import Flask, render_template, request
-from transformer import label_encode_transformer
+# from transformer import label_encode_transformer
+from sklearn.preprocessing import LabelEncoder
+
+# Example of a label encoding transformer function
+def label_encode_transformer(X):
+    encoded_df = pd.DataFrame(X).copy()
+    for col in encoded_df.columns:
+        le = LabelEncoder()
+        encoded_df[col] = le.fit_transform(encoded_df[col])
+    return encoded_df
 
 
 app = Flask(__name__)
-joblib.register_module('transformers', transformers)
 @app.route("/")
 def home():
     diaster_subgroups = ['Meteorological', 'Hydrological', 'Geophysical', 'Climatological']
