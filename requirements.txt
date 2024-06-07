@@ -8,3 +8,4 @@ pandas-gbq==0.19.2
 pandas-stubs==2.0.3.230814
 sklearn-pandas==2.2.0
 numpy==1.26.4
+gunicorn
