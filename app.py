@@ -8,12 +8,12 @@ from flask import Flask, render_template, request
 from sklearn.preprocessing import LabelEncoder
 
 # Example of a label encoding transformer function
-def label_encode_transformer(X):
-    encoded_df = pd.DataFrame(X).copy()
-    for col in encoded_df.columns:
-        le = LabelEncoder()
-        encoded_df[col] = le.fit_transform(encoded_df[col])
-    return encoded_df
+# def label_encode_transformer(X):
+#     encoded_df = pd.DataFrame(X).copy()
+#     for col in encoded_df.columns:
+#         le = LabelEncoder()
+#         encoded_df[col] = le.fit_transform(encoded_df[col])
+#     return encoded_df
 
 
 app = Flask(__name__)
@@ -83,9 +83,9 @@ def predict_cpi():
          magnitude_kph = 0.0
       else:
          error_message = "Invalid scale"
-      loaded_model = tensorflow.keras.models.load_model("simple_dense_model_full_data.keras", compile=False)
+      loaded_model = tensorflow.keras.models.load_model("simple_dense_model_full_data_onehot.keras", compile=False)
       print("Model loaded")
-      preprocessor = joblib.load("preprocessor.joblib")
+      preprocessor = joblib.load("preprocessor_onehot.joblib")
       print("Loaded preprocessor")
       X = [disaster_subgroup,disaster_type, disaster_subtype,
             disaster_iso, disaster_subregion, disaster_year,
