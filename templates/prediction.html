@@ -6,6 +6,12 @@
     <title>Prediction</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- <style>
+      body{
+          background-color: black;
+          color:white;
+      }
+  </style> -->
 </head>
 <body>
     <nav class="navbar navbar-light bg-light">
@@ -14,7 +20,18 @@
         </div>
       </nav>
     <div class="container text-center mt-5">
-        <p>The predicted CPI is : {{prediction}}</p>
+        <p style="font-size:x-large;">The predicted CPI is : <b>{{prediction}}</b></p>
+    </div>
+    <div class="container mt-3">
+      {% if prediction > 50 %}
+      <p>Hyperinflation is characterized by extremely high and typically uncontrollable inflation, often exceeding 50% per month. In this case, the predicted CPI value suggests hyperinflation. This level of inflation can be devastating, leading to a complete collapse of the currency's value. The impact of the natural disaster has severely disrupted the economy, causing prices to skyrocket uncontrollably. People may struggle to afford basic necessities, and the overall economic stability is at risk, with potential for significant social and political unrest.</p>
+      {% elif prediction > 10 %}
+      <p>High inflation is generally indicated when the CPI growth rate is significantly above the target or average inflation rate. In this case, the predicted CPI value suggests very high inflation, exceeding 10%. This typically indicates severe economic disruption caused by the natural disaster. Such high inflation can lead to substantial increases in the cost of living, reduced purchasing power, and overall economic instability. Essential goods and services become significantly more expensive, impacting households and businesses alike.</p>
+      {% elif prediction > 5 %}
+      <p>High inflation is generally indicated when the CPI growth rate is significantly above the target or average inflation rate. Here, the predicted CPI value is moderately high, ranging from 5% to 10%. This suggests a noticeable impact of the natural disaster on inflation. The supply chain disruptions have caused price increases, but they are not as severe as in cases of very high inflation. Consumers may experience higher costs for essential items, affecting their spending power and leading to more cautious economic behavior.</p>
+      {% else %}
+      <p>High inflation is generally indicated when the CPI growth rate is significantly above the target or average inflation rate. The predicted CPI value in this case is below 5%, indicating minimal to moderate inflation. This suggests that the natural disaster's impact on the economy is relatively contained. While there may be some localized disruptions, the overall effect on prices is modest. The supply chain remains largely intact, ensuring that goods and services are available without significant price hikes, thus maintaining economic stability.</p>
+      {% endif %}
     </div>
 </body>
 </html>

@@ -6,15 +6,12 @@
     <title>Index</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <style>
-        /* .cover{
-            width: 80vw;
-            height: 80vh;
-        } */
-        /* .cover img{
-            display: cover;
-        } */
-    </style>
+    <!-- <style>
+        body{
+            background-color: black;
+            color:white;
+        }
+    </style> -->
 </head>
 <body>
     <div class="container mt-4">
@@ -22,16 +19,52 @@
             <h1>Natural Disasters & Economic Impact</h1>
         </div>
     </div>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light" style="background-color: white;">
         <div class="container-fluid">
-          <span class="navbar-brand ms-3 mb-0 h1"><a href="#predict" style="text-decoration: none; color:black">Predict Inflation</a></span>
+          <span class="navbar-brand ms-5 mb-0 h1"><a href="#predict" style="text-decoration: none; color:black">Predict Inflation</a></span>
         </div>
       </nav>
-    <div class="container mt-3">
+    <!-- <div class="container mt-3">
         <img src="{{ url_for('static', filename='images/disaster.jpg') }}" alt="" width="100%" height="100%">
+    </div> -->
+    <div class="container mt-3">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename='images/disaster.jpg') }}" class="d-block w-100" alt="Image 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/flood.jpg') }}" class="d-block w-100" alt="Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/earthquake.jpg') }}" class="d-block w-100" alt="Image 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
 
-    <div class="container mt-5" id="predict">
+    <div class="container mt-3 mb-3">
+        <p>Asia is highly vulnerable to various natural disasters due to its diverse climate and complex geography. 
+            Earthquakes frequently strike countries like Japan, Indonesia, and Nepal, causing significant destruction and loss of life. 
+            Monsoons and typhoons annually impact Southeast Asia, including nations such as the Philippines, Vietnam, and Thailand, leading to severe flooding, landslides, and widespread displacement. 
+            Volcanic eruptions are also a significant risk, particularly in Indonesia, home to many active volcanoes. 
+            Additionally, regions such as Bangladesh and India face recurring challenges from cyclones and riverine flooding, further highlighting the need for robust disaster preparedness and response strategies across the continent.
+        </p>
+    </div>
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h2 id="predict">Predict Inflation</h2>
+        </div>
+    </div>
+    <div class="container mt-2 p-5"  style="border: 1px solid black; padding:10px;">
         <form method="POST" action="/predict">
             <div class="mb-3">
                 <label for="disaster_subgroup" class="form-label">Disaster Subgroup</label>
@@ -98,7 +131,7 @@
                 <label for="diaster_magnitude" class="form-label">Magnitude</label>
                 <input type="number" id="diaster_magnitude" name="diaster_magnitude" class="form-control" placeholder="Magnitude" step="0.01">
             </div>
-            <button type="submit" class="btn btn-primary form-control">Submit</button>
+            <button type="submit" class="btn btn-primary form-control mb-3">Submit</button>
         </form>
     </div>
     <footer>
