@@ -8,7 +8,7 @@ from transformer import label_encode_transformer
 
 
 app = Flask(__name__)
-
+joblib.register_module('transformers', transformers)
 @app.route("/")
 def home():
     diaster_subgroups = ['Meteorological', 'Hydrological', 'Geophysical', 'Climatological']
