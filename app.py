@@ -104,7 +104,7 @@ def predict_cpi():
       prediction_features_transformed = np.array(prediction_features_transformed)
       y_pred = loaded_model.predict(prediction_features_transformed)
       print(f"Predicted CPI: {y_pred}")
-      return f"Predicted CPI:{y_pred[0]}"
+      return render_template("prediction.html",prediction=y_pred[0][0])
 
 if(__name__ =="__main__"):
     app.run(debug=True)
